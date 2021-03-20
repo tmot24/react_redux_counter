@@ -1,4 +1,6 @@
 import React from "react";
+import {connect} from "react-redux";
+import * as actions from "../actions";
 
 const Counter = ({counter, inc, dec, rnd}) => {
     return (
@@ -14,12 +16,12 @@ const Counter = ({counter, inc, dec, rnd}) => {
                 <div className="col">
                     <div className="primitive-actions">
                         <div className="plus-block" onClick={inc}>
-                            <img src={"img/Plus.png"}/>
+                            <img src={"img/Plus.png"} alt={"plus"}/>
                         </div>
-                        <div className="minus-block" onClick={() => dec}>
+                        <div className="minus-block" onClick={dec}>
                             <img src={"img/Minus.png"} alt="minus"/>
                         </div>
-                        <div className="reset-block" onClick={() => rnd}>
+                        <div className="reset-block" onClick={rnd}>
                             <img src={"img/Reset.png"} alt="reset"/>
                         </div>
                     </div>
@@ -29,4 +31,10 @@ const Counter = ({counter, inc, dec, rnd}) => {
     );
 };
 
-export default Counter;
+const mapStateToProps = (state) => {
+    return {
+        counter: state
+    };
+};
+
+export default connect(mapStateToProps, actions)(Counter);
