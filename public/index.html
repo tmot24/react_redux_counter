@@ -1,18 +1,57 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
+<head>
+    <meta charset="utf-8"/>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
     <title>Redux React App</title>
-  </head>
-  <body>
-    <div id="root" class="jumbotron">
-      <h1 id="counter">0</h1>
-      <button id="dec" class="btn btn-primary">DEC</button>
-      <button id="inc" class="btn btn-primary">INC</button>
-      <button id="rnd" class="btn btn-primary">RND</button>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="counter-block content" id="counter">
+                0
+            </div>
+        </div>
     </div>
-  </body>
+    <div class="row">
+        <div class="col">
+            <div class="primitive-actions">
+                <div class="plus-block" id="inc">
+                    <img src="img/Plus.png" alt="plus">
+                </div>
+                <div class="minus-block" id="dec">
+                    <img src="img/Minus.png" alt="minus">
+                </div>
+                <div class="reset-block" id="rst">
+                    <img src="img/Reset.png" alt="reset">
+                </div>
+            </div>
+        </div>
+    </div>
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <div class="load-actions">-->
+<!--                <div class="download-block">-->
+<!--                    <img src="img/Download%20Icon.png" alt="reset">-->
+<!--                </div>-->
+<!--                <div class="upload-block">-->
+<!--                    <img src="img/Upload%20Icon.png" alt="reset">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+
+<div id="root"/>
+
+</body>
 </html>

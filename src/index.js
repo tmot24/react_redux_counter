@@ -1,39 +1,22 @@
-import {createStore} from "redux";
+import {createStore, bindActionCreators} from "redux";
+import reducer from "./reducer";
+import {inc, dec, rnd} from "./actions";
 
-const reducer = (state = 0, action) => {
-    switch (action.type) {
-        case "INC":
-            return ++state;
-        case "DEC":
-            return --state;
-        case "RND":
-            return state + action.value;
-        default:
-            return state;
-    }
-};
+const {dispatch, getState, subscribe} = createStore(reducer);
 
-const inc = () => ({type: "INC"});
-const dec = () => ({type: "DEC"});
-const rnd = (value) => ({type: "RND", value});
+const incDispatch = bindActionCreators(inc, dispatch);
+const decDispatch = bindActionCreators(dec, dispatch);
+const rndDispatch = bindActionCreators(rnd, dispatch);
 
-
-const store = createStore(reducer);
-
-document.getElementById("inc").addEventListener("click", () => {
-    store.dispatch(inc());
+document.getElementById("inc").addEventListener("click", incDispatch);
+document.getElementById("dec").addEventListener("click", decDispatch);
+document.getElementById("rst").addEventListener("click", () => {
+    const value = Math.floor(Math.random() * 10)
+    rndDispatch(value);
 });
-document.getElementById("dec").addEventListener("click", () => {
-    store.dispatch(dec());
-});
-document.getElementById("rnd").addEventListener("click", () => {
-    const value = Math.floor(Math.random() * 10);
-    store.dispatch(rnd(value));
-});
-
 
 const update = () => {
-    document.getElementById("counter").textContent = store.getState();
+    document.getElementById("counter").textContent = getState();
 };
 
-store.subscribe(update);
+subscribe(update);
