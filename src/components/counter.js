@@ -4,10 +4,10 @@ import * as actions from "../actions";
 
 const Counter = ({counter, inc, dec, rnd}) => {
     return (
-        <div className="container">
+        <div className="container content">
             <div className="row">
                 <div className="col">
-                    <div className="counter-block content">
+                    <div className="counter-block">
                         {counter}
                     </div>
                 </div>
